@@ -1,5 +1,4 @@
-"use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import FlashCard from '@/components/FlashCard';
 import { getWords, getWordsByIds } from '@/lib/data'; // Import updated data helpers
@@ -8,15 +7,15 @@ import styles from './page.module.css';
 
 import { incrementLearnedCount, addToReviewQueue, removeFromReviewQueue, getReviewQueue } from '@/lib/userProgress';
 
-export default function LearnPage() {
+function LearnContent() {
     const router = useRouter();
-    const searchParams = useSearchParams();
+    const searchParams = useSearchParams(); // using searchParams causes client-side bail out if not suspended
     const mode = searchParams.get('mode') || 'learn';
     const [words, setWords] = useState<Word[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [sessionStats, setSessionStats] = useState({ know: 0, unknown: 0 });
     const [isFinished, setIsFinished] = useState(false);
-    const [isFlipped, setIsFlipped] = useState(false); // Added based on the snippet's implied change
+    const [isFlipped, setIsFlipped] = useState(false);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -30,8 +29,6 @@ export default function LearnPage() {
                 if (reviewIds.length > 0) {
                     selectedWords = getWordsByIds(reviewIds);
                 }
-                // If no review words, we might want to show a message or redirect, 
-                // but for now we'll just handle empty gracefully in the UI
             } else {
                 // Normal Learning Mode
                 const allWords = getWords('CET4');
@@ -57,7 +54,6 @@ export default function LearnPage() {
     const handleKnown = () => {
         setSessionStats(prev => ({ ...prev, know: prev.know + 1 }));
 
-        // If reviewing, remove from queue. If learning, increment global learned count.
         if (mode === 'review') {
             const currentWord = words[currentIndex];
             if (currentWord) removeFromReviewQueue(currentWord.english);
@@ -147,5 +143,13 @@ export default function LearnPage() {
                 onUnknown={handleUnknown}
             />
         </div>
+    );
+}
+
+export default function LearnPage() {
+    return (
+        <Suspense fallback={<div className="text-center mt-4">Loading environment...</div>}>
+            <LearnContent />
+        </Suspense>
     );
 }

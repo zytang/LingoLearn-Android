@@ -1,5 +1,7 @@
 # LingoLearn - iOS 背单词应用
 
+### 🔥🔥🔥对应开发视频：https://youtu.be/T8nQSFXvoLA
+
 一款功能完整的 iOS 背单词应用，采用 SwiftUI + SwiftData 构建，支持 SM-2 间隔重复算法。
 
 ## 功能特性

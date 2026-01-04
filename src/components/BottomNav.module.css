@@ -1,0 +1,46 @@
+.nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    z-index: 100;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: var(--foreground);
+    opacity: 0.6;
+    font-size: 0.75rem;
+    gap: 0.25rem;
+    min-width: 64px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.active {
+    color: var(--primary);
+    opacity: 1;
+}
+
+.active .icon {
+    stroke-width: 2.5px;
+}
+
+/* Add padding to body to prevent content from being hidden behind nav */
+:global(body) {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+}

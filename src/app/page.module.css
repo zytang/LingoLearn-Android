@@ -1,0 +1,226 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
+}
+
+.appName {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.streakBadge {
+  background-color: #fff1f2;
+  color: #e11d48;
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 2px 4px rgba(225, 29, 72, 0.1);
+}
+
+.fireIcon {
+  width: 20px;
+  height: 20px;
+  fill: #e11d48;
+}
+
+/* Grid Nav */
+.gridNav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.navCard {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s;
+  position: relative;
+  text-align: center;
+}
+
+.navCard:active {
+  transform: scale(0.96);
+  background-color: var(--background);
+}
+
+.iconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svgIcon {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2px;
+}
+
+.blueIcon {
+  background-color: #e0f2fe;
+  color: #0284c7;
+}
+
+.orangeIcon {
+  background-color: #ffedd5;
+  color: #ea580c;
+}
+
+.purpleIcon {
+  background-color: #f3e8ff;
+  color: #9333ea;
+}
+
+.navLabel {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--foreground);
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: var(--error);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  border: 2px solid var(--card);
+}
+
+/* Progress Section */
+.progressSection {
+  background-color: var(--card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  margin: 0 0 1rem 0;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.progressCard {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+.ringWrapper {
+  flex-shrink: 0;
+}
+
+.progressInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.statRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statVal {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.goalVal {
+  color: var(--primary);
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.goalLabel {
+  color: var(--primary);
+  opacity: 1;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.clickableRow {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.clickableRow:hover {
+  background-color: var(--background);
+}
+
+.clickableRow:active {
+  background-color: #f0f9ff;
+  transform: scale(0.98);
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--border);
+}

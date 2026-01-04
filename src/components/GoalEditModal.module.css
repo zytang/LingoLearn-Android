@@ -1,0 +1,117 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 320px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--foreground);
+}
+
+.subtitle {
+    margin: 0 0 1.5rem 0;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background: var(--background);
+    color: var(--foreground);
+    font-weight: 700;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: var(--primary);
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btnCancel,
+.btnSave {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.1s;
+}
+
+.btnCancel:active,
+.btnSave:active {
+    transform: scale(0.96);
+}
+
+.btnCancel {
+    background: transparent;
+    color: var(--foreground);
+    opacity: 0.6;
+}
+
+.btnCancel:hover {
+    background: var(--background);
+    opacity: 1;
+}
+
+.btnSave {
+    background: var(--primary);
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

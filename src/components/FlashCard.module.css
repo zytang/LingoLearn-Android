@@ -1,0 +1,154 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    perspective: 1000px;
+    width: 100%;
+}
+
+.card {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    background-color: var(--card);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid var(--border);
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: white;
+}
+
+/* Dark mode tweak for back card */
+@media (prefers-color-scheme: dark) {
+    .back {
+        background: var(--card);
+    }
+}
+
+
+.speaker {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.6;
+    z-index: 10;
+}
+
+.word {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.phonetic {
+    font-size: 1.25rem;
+    opacity: 0.6;
+    margin-bottom: 2rem;
+}
+
+.hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.875rem;
+    opacity: 0.4;
+}
+
+.definition {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.part {
+    font-style: italic;
+    opacity: 0.6;
+    margin-bottom: 2rem;
+}
+
+.example {
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.8;
+    max-width: 90%;
+}
+
+.enSentence {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.cnSentence {
+    opacity: 0.7;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.btn {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btnUnknown {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.btnKnow {
+    background-color: #dcfce7;
+    color: #22c55e;
+}
